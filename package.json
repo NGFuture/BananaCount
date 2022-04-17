@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "firebase": "^9.6.11",
+    "next": "^12.1.5",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "sass": "^1.50.0"
+  },
+  "name": "2022-bananacount",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "next start",
+    "build": "next build",
+    "dev": "next dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NGFuture/BananaCount.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NGFuture/BananaCount/issues"
+  },
+  "homepage": "https://github.com/NGFuture/BananaCount#readme"
+}
