@@ -1,7 +1,11 @@
 import SwitchType from "../components/products/SwitchType";
 import FilterBar from "../components/products/FilterBar";
+import { useMainContext } from "../components/context/MainContext";
+import Card from "../components/products/Card";
 
 const IndexPage = () => {
+    const { products } = useMainContext();
+
     return (
 
         <div className="content">
@@ -26,7 +30,13 @@ const IndexPage = () => {
                 <FilterBar />
             </div>
             <div className="products">
-                Products
+                {!!products && products.map((item) => { 
+                    console.log("item map", item.id, item.itemName, item.itemQ, item.itemUrl );
+                    return (
+                    <div key={item.id} className="cards-container">
+                        <Card itemName={item.itemName} itemQ={item.itemQ} id={item.id} itemUrl={item.itemUrl} />
+                    </div>)
+                })}
             </div>
         </div>
     )

@@ -1,6 +1,8 @@
+import "../node_modules/bootstrap/scss/bootstrap.scss";
 import "../scss/style.scss";
 import MainLayout from "../components/layouts/MainLayout";
 import Head from "next/head";
+import { MainProvider } from "../components/context/MainContext";
 
 export default function MyApp(props) {
     const { Component, pageProps } = props;
@@ -22,10 +24,11 @@ export default function MyApp(props) {
                 <meta name="viewport" content="initial-scale=1, width=device-width" />
             </Head>
 
-
-            <MainLayout>
-                <Component {...pageProps} />
-            </MainLayout>
+            <MainProvider>
+                <MainLayout>
+                    <Component {...pageProps} />
+                </MainLayout>
+            </MainProvider>
         </>
     );
 }

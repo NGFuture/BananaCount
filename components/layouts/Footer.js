@@ -4,9 +4,12 @@ const Footer = () => {
 
     return (
         <footer className="main-footer">
-            <div> Copyright &copy; {year} | &nbsp; </div>
-            <a href="https://github.com/NGFuture/BananaCount">GitHub</a>
-            <a className="credits" href="http://www.freepik.com">{"\n"}Logo and pictures credit</a>
+
+            <div> Copyright &copy; {year} | &nbsp; <a href="https://github.com/NGFuture/BananaCount">GitHub</a> </div>
+
+            <div>
+                <a className="credits" href="http://www.freepik.com">{"\n"}Logo and pictures credit</a>
+            </div>
         </footer>
     )
 }

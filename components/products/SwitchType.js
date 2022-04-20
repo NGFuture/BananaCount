@@ -1,19 +1,17 @@
-const SwitchType = () => {
-    
-    
+import { useMainContext } from "../context/MainContext";
 
-    const openPopup = () => {
-        
-    }
+
+const SwitchType = () => {
+    const { setPopupOpen } = useMainContext();
 
     const handleAddClick = () => {
-        openPopup();
+        setPopupOpen(true);
     }
-    
-    
+      
     return (
-        <div>
-            <button type="button" class="btn btn-primary" onClick={handleAddClick}>Primary</button>
+        <div className="switch-type">
+            <button type="button" className="btn add-button" onClick={handleAddClick}>+</button>
+            Add Product
             SwitchType
         </div>
     )

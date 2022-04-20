@@ -2,25 +2,89 @@ import { createContext, useContext } from "react";
 // special object which has Provider property
 const MainContext = createContext();
 import { useState, useEffect } from "react";
-import { auth, db } from "../../config/fire-config";
-import { doc, getDoc, setDoc, updateDoc, onSnapshot, query, where, collection, documentId } from "firebase/firestore";
-
+import { db, storage, auth } from "../../config/fire-config";
+import { doc, getDoc, getDocs, setDoc, updateDoc, onSnapshot, query, where, collection, documentId, addDoc } from "firebase/firestore";
+import {
+    ref,
+    uploadBytesResumable,
+    getDownloadURL,
+    deleteObject,
+} from "firebase/storage";
 
 
 export const MainProvider = ({ children }) => {
-    const [items, setItems] = useState(null);
+    const [products, setProducts] = useState([]);
+    const [popupOpen, setPopupOpen] = useState(false);
+    const [idToEdit, setIdToEdit] = useState(null);
+    const [filter, setFilter] = useState("all");
+    const [displayCards, setDisplayCards] = useState(true);
+    const [themeSun, setThemeSun] = useState(true);
+
+    // this function adds new product to Firebase and closes Popup after that
+    async function createProduct(item) {
+        console.log(item);
+
+        // addDoc() + collection() auto generate ID in Firebase
+        const docRef = await addDoc(collection(db, "items"), {
+            itemName: item.itemName,
+            itemQ: item.itemQ,
+            itemUrl: item.itemUrl,
+        })
+        setPopupOpen(false);
+    }
+//this function updates quantaty of products
+    async function updateQuantaty(id, itemQ) {
+        // if = 0 then send email
+
+        const docRef = await updateDoc(doc(db, "items", id), {
+            itemQ: itemQ,
+        })
+        setPopupOpen(false);
+    }
+
+    const imageUpload = (image) => {
+        const imageRef = ref(storage, `itemsPhotos/${image.name}`);
+        const uploadImages = uploadBytesResumable(imageRef, image);
+        return new Promise((resolve, reject) => {
+            uploadImages.on(
+                "state_changed",
+                (snapshot) => {
+                    //   const process =
+                    //     (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    //   console.log("uploading", process);
+                    //   setProgress("uploading");
+                },
+                (error) => {
+                    console.log("Encounter ", error);
+                    reject(error)
+                },
+                () => {
+                    getDownloadURL(ref(storage, `itemsPhotos/${image.name}`)).then(
+                        (url) => {
+                            resolve(url);
+                            //     setImageUrl(url);
+                            //   setProgress("uploaded");
+                            //   setAddingItem({...addingItem, itemUrl: url })
+                        }
+                    );
+                }
+            );
+        })
+    }
 
     useEffect(() => {
+        const collectionRef = collection(db, "items");
+        onSnapshot(collectionRef, (snap) => {
+            const newProducts = snap.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+            setProducts(newProducts);
+        });
 
-        async function getItems() {
-            const docRef = collection(db, "items");
-            const docSnap = await getDocs(docRef);
-            docSnap.forEach((doc) => {
-                // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
-            });
-        }
     }, [])
+    console.log(products);
+
 
 
     // const toggleFavorite = (post) => {
@@ -115,7 +179,20 @@ export const MainProvider = ({ children }) => {
 
 
     const value = {
-        items: items,
+        products: products,
+        popupOpen,
+        setPopupOpen,
+        idToEdit,
+        setIdToEdit,
+        filter,
+        setFilter,
+        displayCards,
+        setDisplayCards,
+        themeSun,
+        setThemeSun,
+        createProduct,
+        imageUpload,
+        updateQuantaty,
     };
     return (
         <MainContext.Provider value={value}>
