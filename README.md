@@ -15,13 +15,16 @@ npm run start
 
 .env file contains settings for Firebase
 
+## Deployed:
+https://banana-count.vercel.app/
+
 ## General Information:
 
 Application: Banana Count
 Tracks amount of items and informs by email if no item left.
 
 ## Project Overview and Concept
-Fun design
+Fun design with easy-breezy UX
 
 ## Versions, authors
 Natalia Grigoryeva
