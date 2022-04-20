@@ -16,7 +16,7 @@ export const MainProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [popupOpen, setPopupOpen] = useState(false);
     const [idToEdit, setIdToEdit] = useState(null);
-    const [filter, setFilter] = useState("all");
+    const [filter, setFilter] = useState("no");
     const [displayCards, setDisplayCards] = useState(true);
     const [themeSun, setThemeSun] = useState(true);
 
@@ -40,6 +40,7 @@ export const MainProvider = ({ children }) => {
             itemQ: itemQ,
         })
         setPopupOpen(false);
+        setIdToEdit(null);
     }
 
     const imageUpload = (image) => {
