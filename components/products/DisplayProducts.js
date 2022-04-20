@@ -3,7 +3,7 @@ import Card from "./Card";
 
 const DisplayProducts = () => {
     const { filter, products } = useMainContext()
-    const productsToDisplay = [];
+    let productsToDisplay = [];
     if (filter === "all") {
         productsToDisplay = products
     } else if (filter === "low") {
