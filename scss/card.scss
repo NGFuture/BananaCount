@@ -66,18 +66,25 @@
     font-size: 1rem;
     width: 30px;
     height: 30px;
+    background-color: #6DB784;
     padding: 3px;
     border: 1px solid black;
     border-radius: 50%;
-    top: 0px;
+    top: 4px;
 }
 
 .plus-icon {
-    right: -20px;
+    right: -25px;
 }
 
 .minus-icon {
-    left: -20px;
+    left: -25px;
+}
+
+.save-button {
+    background-color: #6DB784;
+    margin-top: 20px;
+    margin-left: 45px;
 }
 
 .Cards {

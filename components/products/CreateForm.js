@@ -49,7 +49,7 @@ const CreateForm = () => {
                 <input type="number" className="form-control" placeholder="Enter quantity of product" value={addingItem.itemQ} onChange={(e) => {
                 setAddingItem({ ...addingItem, itemQ: +e.target.value });
               }} />
-                <small className="form-text text-muted">Number from 0 up to 100</small>
+                <small className="form-text text-muted">Number from 0 up to 999</small>
             </div>
 
             <div className="form-group">
@@ -60,7 +60,7 @@ const CreateForm = () => {
             </div>
 
 
-            <button type="submit" className="btn btn-primary" >Submit</button>
+            <button type="submit" className="btn btn-primary submit-button" >Submit</button>
         </form>
     );
 }

@@ -21,7 +21,7 @@ const EditForm = () => {
                     <div className="quantity">
                         <div className="card-text fw-bold card-number">{itemQ}</div>
                         <div className="plus-icon" onClick={(e) => {
-                            if (itemQ+1>100) {return}
+                            if (itemQ+1>999) {return}
                             setItemQ(itemQ + 1)
                         }}>+</div>
                         <div className="minus-icon" onClick={(e) => {
@@ -31,7 +31,7 @@ const EditForm = () => {
                     </div>
                 </div>
             </div>
-            <button onClick={handleSave}>Save</button>
+            <button className="btn btn-primary save-button" type="button" onClick={handleSave}>Save</button>
         </div>
     )
 }
