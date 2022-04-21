@@ -36,6 +36,7 @@ by Natalia Grigoryeva | https://github.com/NGFuture
 
     NextJs
     Bootstrap
+    Nodemailer
     
    UI/UX:
 
@@ -45,7 +46,8 @@ by Natalia Grigoryeva | https://github.com/NGFuture
 
 
  Database:
- 
-   Firebase@ 9
+
+    Firebase@ 9
+
 
 
