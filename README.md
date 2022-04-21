@@ -42,7 +42,7 @@ by Natalia Grigoryeva | https://github.com/NGFuture
     Figma - MockUI
     [Sun mood](docs/HomePage - sun.jpg)
     [Moon mood](.docs/HomePage - moon.jpg)
-    [here](myLib/README.md)
+    [here](https://github.com/NGFuture/BananaCount/blob/main/docs/HomePage%20-%20moon.jpg)
 
  Database:
  
