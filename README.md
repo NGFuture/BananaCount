@@ -40,6 +40,9 @@ by Natalia Grigoryeva | https://github.com/NGFuture
    UI/UX:
 
     Figma - MockUI
+   <a href="docs/HomePage - sun.jpg">Sun mood MockUI</a></br>
+   <a href="docs/HomePage - moon.jpg">Mood mood MockUI</a>
+
 
  Database:
  

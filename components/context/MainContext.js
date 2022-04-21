@@ -20,6 +20,20 @@ export const MainProvider = ({ children }) => {
     const [displayCards, setDisplayCards] = useState(true);
     const [themeSun, setThemeSun] = useState(true);
 
+    function sendNotification(itemName) {
+        fetch("/api/notification", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({itemName: itemName})
+        }).then(res => res.text())
+        .then(data => {
+            console.log({data})
+        })
+    }
+    
+    
     // this function adds new product to Firebase and closes Popup after that
     async function createProduct(item) {
         console.log(item);
@@ -33,8 +47,10 @@ export const MainProvider = ({ children }) => {
         setPopupOpen(false);
     }
 //this function updates quantaty of products
-    async function updateQuantaty(id, itemQ) {
-        // if = 0 then send email
+    async function updateQuantaty(id, itemQ, itemName) {
+        if (itemQ === 0) {
+            sendNotification(itemName);
+        }
 
         const docRef = await updateDoc(doc(db, "items", id), {
             itemQ: itemQ,
