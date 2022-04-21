@@ -9,7 +9,7 @@ const EditForm = () => {
     const { id, itemName, itemQ: originalItemQ, itemUrl } = product;
     const [itemQ, setItemQ] = useState(originalItemQ);
     const handleSave = (e) => {
-        updateQuantaty(id, itemQ)
+        updateQuantaty(id, itemQ, itemName)
     }
 
     return (

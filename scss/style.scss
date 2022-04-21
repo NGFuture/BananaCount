@@ -47,6 +47,17 @@
 
 .switch-type {
     grid-area: switch-type;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 40px;
+    margin-top: 1rem;
+}
+
+.switcher {
+    width: 140px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .products {
@@ -72,9 +83,8 @@
     // width: 100px;
     // height: 30px;
 }
-.switch-type {
-    margin-top: 1rem;
-}
+
+
 
 .add-button {
     border-radius: 50%;
@@ -89,19 +99,89 @@
     // text-decoration: none;
 }
 
+// .switch-cards {
+//     background-color: #1B4D89;
+// }
+
+.form-switch .form-check-input {
+    height: 20px;
+    width: 40px;
+}
+.form-switch .form-check-input:focus {
+    border-color: #1B4D89;
+    background-color:  #1B4D89;
+    outline: 0;
+    box-shadow: 0 0 0 0 red;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
+}
+.form-switch .form-check-input:checked {
+    background-color: #1B4D89;
+    border-color: #1B4D89;
+    border: none;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
+}
+
 .submit-button {
     background-color: #6DB784;
     margin-top: 20px;
 }
 
 .all-stock {
-    background-color: #6DB784;
+    background-color: white;
+    border: 4px solid #6DB784;
+    color: black;
+}
+.all-stock:hover {
+    color: black;
+    background-color: #F9E45B;
+    border-color: #F9E45B;
+    outline: none;
+    box-shadow: none;
+  }
+.all .all-stock {
+    background-color:  #6DB784;
+    color: black;
+    border: 4px solid #6DB784;
 }
 .low-stock {
-    background-color: #FFA500;
+    background-color: white;
+    border: 4px solid #FFA500;
+    color: black;
+}
+
+.low-stock:hover {
+    color: black;
+    background-color: #F9E45B;
+    border-color: #F9E45B;
+    outline: none;
+    box-shadow: none;
+  }
+
+.low .low-stock {
+    background-color:  #FFA500;
+    color: black;
+    border: 4px solid #FFA500;
 }
 .no-stock {
-    background-color: #FF0000;
+    background-color: white;
+    border: 4px solid #FF0000;
+    color: black;
+    box-shadow: #FF0000;
+}
+
+.no-stock:hover {
+    color: black;
+    background-color: #F9E45B;
+    border-color: #F9E45B;
+    outline: none;
+    box-shadow: none;
+  }
+
+
+.no .no-stock {
+    background-color:  #FF0000;
+    color: black;
+    border: 4px solid #FF0000;
 }
 
 footer {
