@@ -40,9 +40,9 @@ by Natalia Grigoryeva | https://github.com/NGFuture
    UI/UX:
 
     Figma - MockUI
-    [Sun mood](docs/HomePage - sun.jpg)
-    [Moon](https://github.com/NGFuture/BananaCount/blob/main/docs/HomePage%20-%20moon.jpg)
-    <a href="docs/HomePage - sun.jpg">This is a link</a>
+   [Sun mood](docs/HomePage - sun.jpg)
+   [Moon](https://github.com/NGFuture/BananaCount/blob/main/docs/HomePage%20-%20moon.jpg)
+   <a href="docs/HomePage - sun.jpg">This is a link</a>
 
  Database:
  
