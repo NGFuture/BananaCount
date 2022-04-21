@@ -2,7 +2,7 @@ import { useMainContext } from "../context/MainContext";
 import Card from "./Card";
 
 const DisplayProducts = () => {
-    const { filter, products, displayCards } = useMainContext()
+    const { filter, products, displayCards, setPopupOpen, setIdToEdit } = useMainContext()
     let productsToDisplay = [];
     if (filter === "all") {
         productsToDisplay = products
@@ -31,6 +31,7 @@ if (displayCards) {
                 <tr>
                     <th>Name</th>
                     <th>Image</th>
+                    <th>Quantity</th>
                     <th>Edit</th>
                 </tr>
             </thead>
@@ -38,12 +39,13 @@ if (displayCards) {
             {productsToDisplay.map((item) => {
                 return (
                     <tr key={item.id}>
-                        <td>{item.itemName}</td>
-                        <td><img src={item.itemUrl} alt={item.itemName}/></td>
+                        <td>{item.itemName.toUpperCase()}</td>
+                        <td><img src={item.itemUrl} alt={item.itemName} className="table-image"/></td>
+                        <td>{item.itemQ}</td>
                         <td>
-                        <img src="/pencil2-black2.png" className="pen-icon-table" onClick={(e)=>{
+                        <img src="/pencil2-black2.png" className="table-pen-icon" onClick={(e)=>{
                             setPopupOpen(true);
-                            setIdToEdit(id);
+                            setIdToEdit(item.id);
                         }} />
                         </td>
                     </tr>)
