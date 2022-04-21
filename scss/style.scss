@@ -58,6 +58,7 @@
     width: 140px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .products {
@@ -84,7 +85,10 @@
     // height: 30px;
 }
 
-
+.add-button-group {
+    display: flex;
+    align-items: center;
+}
 
 .add-button {
     border-radius: 50%;
@@ -97,6 +101,11 @@
     margin-right: 5px;
     // text-align: center;
     // text-decoration: none;
+}
+
+.add-product-text {
+    display: none;
+    margin: 0px;
 }
 
 // .switch-cards {
@@ -184,6 +193,18 @@
     border: 4px solid #FF0000;
 }
 
+
+// table
+.table-image {
+    // width: 30px;
+    height: 30px;
+}
+
+.table-pen-icon {
+    width: 25px;
+}
+
+
 footer {
     display: flex;
     flex-direction: column;
@@ -216,12 +237,15 @@ footer {
     .button-group {
         display: flex;
         flex-direction: column;
-        margin-top: 50px; 
+        margin-top: 10px; 
     }
     .button-group button {
         margin-bottom: 10px; 
     }
 
+    .add-product-text {
+        display: block;
+    }
 }
 
 /* tablet, */
