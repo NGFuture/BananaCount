@@ -36,16 +36,18 @@ by Natalia Grigoryeva | https://github.com/NGFuture
 
     NextJs
     Bootstrap
+    Nodemailer
     
    UI/UX:
 
     Figma - MockUI
-   <a href="docs/HomePage - sun.jpg">Sun mood MockUI</a></br>
-   <a href="docs/HomePage - moon.jpg">Mood mood MockUI</a>
+   <a href="docs/HomePage - sun (sm).jpg">Sun mood MockUI</a></br>
+   <a href="docs/HomePage - moon (sm).jpg">Mood mood MockUI</a>
 
 
  Database:
- 
-   Firebase@ 9
+
+    Firebase@ 9
+
 
 
