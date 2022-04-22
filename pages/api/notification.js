@@ -1,7 +1,7 @@
 const path = require("path")
 export default function (req, res) {
     require('dotenv').config({
-        path: path.join(__dirname, "../../.env.local")
+        path: path.join(__dirname, "../../.env")
     })
     
     let nodemailer = require('nodemailer')
