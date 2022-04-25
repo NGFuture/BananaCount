@@ -13,7 +13,7 @@ To deploy project you need to build it with commands:
 npm run build
 npm run start
 
-.env file contains settings for Firebase
+.env file contains settings for Firebase and Nodemailer
 
 ## Deployed:
 https://banana-count.vercel.app/

@@ -17,7 +17,7 @@ export const MainProvider = ({ children }) => {
     const [popupOpen, setPopupOpen] = useState(false);
     const [idToEdit, setIdToEdit] = useState(null);
     const [idToDelete, setIdToDelete] = useState(null);
-    const [filter, setFilter] = useState("no");
+    const [filter, setFilter] = useState("all");
     const [displayCards, setDisplayCards] = useState(true);
     const [themeSun, setThemeSun] = useState(true);
 
