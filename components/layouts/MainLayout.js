@@ -4,6 +4,7 @@ import { useMainContext } from "../context/MainContext";
 import Popup from "../popup/Popup";
 import CreateForm from "../products/CreateForm";
 import EditForm from "../products/EditForm";
+import DeleteForm from "../products/DeleteForm";
 
 const MainLayout = ({ children }) => {
     const {popupOpen, setPopupOpen, setIdToEdit, idToEdit} = useMainContext();
@@ -20,6 +21,7 @@ const MainLayout = ({ children }) => {
                 </main>
                 <Footer />
                 {popupOpen && <Popup close={close}>
+                {/* {idToEdit ? <DeleteForm/> : <CreateForm/>}               */}
                 {idToEdit ? <EditForm/> : <CreateForm/>}
                 </Popup>}
             </div>

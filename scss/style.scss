@@ -103,6 +103,8 @@
     // text-decoration: none;
 }
 
+
+
 .add-product-text {
     display: none;
     margin: 0px;
@@ -133,6 +135,16 @@
 .submit-button {
     background-color: #6DB784;
     margin-top: 20px;
+    color: black;
+    border: none;
+    margin-top: 20px;
+    margin-left: 140px;
+}
+
+.submit-button:hover {
+    background-color: #F9E45B;
+    margin-top: 20px;
+    color: black;
 }
 
 .all-stock {
