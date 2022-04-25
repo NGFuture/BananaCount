@@ -36,6 +36,7 @@ export default function (req, res) {
       console.log(err)
     else
       console.log(info)
+      res.status(200).send({err, info, email:process.env.EMAIL_ADDRESS})
   })
-  res.status(200).send("email sent")
+  
 }
