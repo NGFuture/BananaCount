@@ -1,20 +1,21 @@
 import { useMainContext } from "../context/MainContext";
 
 const DeleteForm = () => {
-    const { products, idToEdit, deleteProduct} = useMainContext();
+    const { products, idToDelete, deleteProduct } = useMainContext();
 
-    const product = products.find((product)=> {
-        return product.id === idToEdit 
+    const product = products.find((product) => {
+        return product.id === idToDelete
     })
-   const { id, itemName, itemQ, itemUrl} = product;
+    if (!product) {
+        return (
+            <p>Loading...</p>)
+    }
+    const { id, itemName, itemQ, itemUrl } = product;
 
-    // deleteProduct("LdbTRr1ZZVkDs3MFHcq9");
-    
     const handleDelete = (e) => {
         deleteProduct(id)
     }
-
-    if (product) {return (
+    return (
         <div>
             <button className="btn btn-primary delete-button" type="button" onClick={handleDelete}>Confirm deletion</button>
             <div className="card one-card" >
@@ -23,21 +24,11 @@ const DeleteForm = () => {
                 <div className="card-body under-picture">
                     <div className="quantity">
                         <div className="card-text fw-bold card-number">{itemQ}</div>
-                        {/* <div className="plus-icon" onClick={(e) => {
-                            if (itemQ+1>999) {return}
-                            setItemQ(itemQ + 1)
-                        }}>+</div>
-                        <div className="minus-icon" onClick={(e) => {
-                            if (itemQ-1<0) {return}
-                            setItemQ(itemQ - 1)
-                        }}>-</div> */}
                     </div>
                 </div>
             </div>
         </div>
-    )} else {return (
-        <p> Wait deleting product </p>
-    ) }
-} 
+    )
+}
 
 export default DeleteForm

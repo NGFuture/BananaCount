@@ -16,6 +16,7 @@ export const MainProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [popupOpen, setPopupOpen] = useState(false);
     const [idToEdit, setIdToEdit] = useState(null);
+    const [idToDelete, setIdToDelete] = useState(null);
     const [filter, setFilter] = useState("no");
     const [displayCards, setDisplayCards] = useState(true);
     const [themeSun, setThemeSun] = useState(true);
@@ -71,7 +72,7 @@ export const MainProvider = ({ children }) => {
         // deleteObject(desertRef)
 
 
-        setIdToEdit(null);
+        setIdToDelete(null);
         setPopupOpen(false);
 
     }
@@ -120,99 +121,6 @@ export const MainProvider = ({ children }) => {
     }, [])
     console.log(products);
 
-
-
-    // const toggleFavorite = (post) => {
-    //     const updateSavedPosts = (savedPosts) => {
-    //         updateDoc(doc(db, "users", currentUser.uid), {
-    //             savedPosts,
-    //         });
-    //         setCurrentUser({ ...currentUser, savedPosts });
-    //     };
-    //     const liked = currentUser.savedPosts.includes(post.id);
-    //     if (liked) {
-    //         //delete post form savedPost collection for current user
-    //         const newSavedPosts = [...(currentUser.savedPosts || [])];
-    //         const postIndex = newSavedPosts.findIndex((nextPost) => {
-    //             return nextPost === post.id;
-    //         });
-    //         newSavedPosts.splice(postIndex, 1);
-    //         updateSavedPosts(newSavedPosts);
-    //     } else {
-    //         const newSavedPosts = [...(currentUser.savedPosts || [])];
-    //         newSavedPosts.push(post.id);
-    //         updateSavedPosts(newSavedPosts);
-    //     }
-    // };
-
-    // const favoritesList = (userFavList) => {
-    //     const postsRef = collection(db, "posts");
-    //     const q = query(
-    //         postsRef,
-    //         where(documentId(), "in", userFavList.savedPosts)
-    //     );
-    //     onSnapshot(q, (snap) => {
-    //         const queryList = snap.docs.map((doc) => ({
-    //             id: doc.id,
-    //             ...doc.data(),
-    //         }));
-    //         setFavList(queryList);
-    //     });
-
-    // };
-
-
-    // useEffect(() => {
-    //     onAuthStateChanged(auth, (user) => {
-    //         if (user) {
-    //             setUser(user);
-
-    //         } else {
-    //             setUser(null);
-    //         }
-    //     });
-    // }, [])
-
-    // useEffect(() => {
-    //     if (!user) return
-    //     async function authChange() {
-    //         const docRef = doc(db, "users", user.uid);
-    //         const docSnap = await getDoc(docRef);
-
-    //         if (docSnap.exists()) {
-    //             // if (docSnap.data().photo) {
-    //             //     setPhoto(docSnap.data().photo);
-    //             // } 
-    //             setCurrentUser(docSnap.data())
-    //         } else {
-    //             const currentUser = {
-    //                 accountCreatedDate: new Date(),
-    //                 email: user.email,
-    //                 name: user.displayName,
-    //                 phoneNumber: user.phoneNumber,
-    //                 photo: user.photoURL,
-    //                 provider: `Login-${user.providerData[0].providerId}`,
-    //                 savedPosts: [],
-    //                 uid: user.uid,
-    //                 zipCode: 0,
-    //             }
-    //             setCurrentUser(currentUser);
-    //             await setDoc(doc(db, "users", user.uid), currentUser);
-    //         }
-
-
-    //     }
-    //     authChange();
-
-    // }, [user])
-
-    // useEffect(() => {
-    //     if (currentUser) {
-    //         setLoginAlert(false) 
-    //     }
-    // }, [currentUser]);
-
-
     const value = {
         products: products,
         popupOpen,
@@ -228,7 +136,9 @@ export const MainProvider = ({ children }) => {
         createProduct,
         imageUpload,
         updateQuantaty,
-        deleteProduct
+        deleteProduct,
+        idToDelete,
+        setIdToDelete
     };
     return (
         <MainContext.Provider value={value}>

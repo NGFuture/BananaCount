@@ -1,0 +1,200 @@
+
+
+.page-wrapper.theme-dark {
+    background-color: #1B4D89;
+    color: white;
+        header {
+            background-color: #98D4D2;
+                }
+        footer {
+            background-color: #98D4D2;
+            color: #1B4D89;
+        }  
+     
+        .logo-wrapper {
+            color: #1B4D89;
+        }
+        
+        // theme-switch
+        
+
+        .mood-text {
+            color: #1B4D89;
+        }
+        
+        .round-btn-sun {
+            border-radius: 50%;
+            background-color: #F9E45B;
+            // border: 2px solid #1B4D89;
+            border: 0px solid #1B4D89;
+            width: 15px;
+            height: 15px;
+            margin-left: 4px;
+            
+        }
+        
+        .round-btn-moon {
+            border-radius: 50%;
+            background-color: #1B4D89;
+            border: 2px solid #F9E45B;
+            width: 20px;
+            height: 20px;
+        }
+            
+        
+        .add-button {
+            color: white;
+        }
+
+        .form-switch .form-check-input:focus {
+            border-color: #98D4D2;
+            background-color:  #98D4D2;
+            outline: 0;
+            box-shadow: 0 0 0 0 red;
+            background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
+        }
+        .form-switch .form-check-input:checked {
+            background-color: #98D4D2;
+            border-color: #98D4D2;
+            border: none;
+            background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(27, 77, 137,1.0)'/></svg>");
+        }
+        
+        .submit-button {
+            background-color: #6DB784;
+            color: black;
+            border: none;
+        }
+        
+        .submit-button:hover {
+            background-color: #F9E45B;
+            color: black;
+        }
+
+        .save-button {
+            background-color: #6DB784;
+            border: none;
+            color: black;
+        }
+        .save-button:hover {
+            background-color: #F9E45B;
+            border: none;
+            color: black;
+        }
+        
+        .delete-button {
+            background-color: #FF0000;
+            border: none;
+        }
+        
+        .all-stock {
+            background-color: #1B4D89;
+            border: 4px solid #6DB784;
+            color: white;
+        }
+        .all-stock:hover {
+            color: black;
+            background-color: #98D4D2;
+            border-color: #98D4D2;
+          }
+        .all .all-stock {
+            background-color:  #6DB784;
+            color: #1B4D89;
+            border: 4px solid #6DB784;
+        }
+        .low-stock {
+            background-color: #1B4D89;
+            border: 4px solid #FFA500;
+            color: white;
+        }
+        
+        .low-stock:hover {
+            color: black;
+            background-color: #98D4D2;
+            border-color: #98D4D2;
+          }
+        
+        .low .low-stock {
+            background-color:  #FFA500;
+            color: #1B4D89;
+            border: 4px solid #FFA500;
+        }
+        .no-stock {
+            background-color: #1B4D89;
+            border: 4px solid #FF0000;
+            color: white;
+            box-shadow: #FF0000;
+        }
+        
+        .no-stock:hover {
+            color: black;
+            background-color: #98D4D2;
+            border-color: #98D4D2;
+          }
+        
+        
+        .no .no-stock {
+            background-color:  #FF0000;
+            color: #1B4D89;
+            border: 4px solid #FF0000;
+        }
+
+        th, td {
+            color: white;
+        }
+
+        .container {
+            background-color: #1B4D89;
+        }
+        
+
+        
+        
+/*  landscape mobile */
+@media (min-width:769px) {
+    .content {
+        grid-template-columns: 1fr 4fr !important; 
+        grid-gap:30px;
+        grid-template-areas:
+            ". switch-type"
+            "filter-bar products"
+    }
+    .button-group {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px; 
+    }
+    .button-group button {
+        margin-bottom: 10px; 
+    }
+
+    .add-product-text {
+        display: block;
+    }
+
+    .table-pen-icon {
+        width: 25px;
+    }
+    
+    .table-cross-icon {
+        margin-left: 10px;
+        width: 25px;
+    }
+}
+
+/* tablet, */
+@media (min-width:1024px) {
+
+}
+
+/* desktop */
+@media (min-width: 1280px) {
+
+
+  }
+
+
+
+
+
+}

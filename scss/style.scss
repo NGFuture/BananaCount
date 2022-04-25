@@ -1,6 +1,9 @@
 // @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "./popup.scss";
 @import "./card.scss";
+@import "./style-dark.scss";
+@import "./popup-dark.scss";
+@import "./card-dark.scss";
 
 .page-wrapper {
     height: 100vh;
@@ -11,15 +14,67 @@
         display: flex;
         background-color: #F9E45B;
         flex-direction: row;
+        justify-content: space-between;
         align-items: center;
     }
     footer {
         height: 50px;
+        display: flex;
+        flex-direction: column;
+        background-color: #F9E45B;
+        justify-content: center;
+        align-items: center;
+        .credits {
+        font-size: 0.75rem;
+        }
     }
     main {
         flex: 1;
     }
 }
+
+.logo-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+// theme-switch
+
+.theme-switch {
+    margin-right: 10px;
+}
+.sun-mood, .moon-mood {
+    display: flex;
+    flex-direction: row;
+}
+
+.moon-mood {
+    margin-top: 5px;
+}
+.mood-text {
+    font-size: 0.7rem;
+    margin-left: 4px;
+}
+
+.round-btn-sun {
+    border-radius: 50%;
+    background-color: #F9E45B;
+    border: 2px solid #1B4D89;
+    width: 20px;
+    height: 20px;
+    
+}
+
+.round-btn-moon {
+    border-radius: 50%;
+    background-color: #1B4D89;
+    // border: 4px solid #F9E45B;
+    width: 15px;
+    height: 15px;
+    margin-left: 2px;
+}
+
 
 .content {
     display: grid;
@@ -141,10 +196,29 @@
     margin-left: 140px;
 }
 
+
 .submit-button:hover {
     background-color: #F9E45B;
     margin-top: 20px;
     color: black;
+}
+
+.save-button {
+    background-color: #6DB784;
+    margin-top: 20px;
+    margin-left: 45px;
+    border: none;
+    color: black;
+}
+.save-button:hover {
+    background-color: #F9E45B;
+    border: none;
+    color: black;
+}
+
+.delete-button {
+    background-color: #FF0000;
+    border: none;
 }
 
 .all-stock {
@@ -213,28 +287,13 @@
 }
 
 .table-pen-icon {
-    width: 25px;
+    width: 15px;
 }
 
-
-footer {
-    display: flex;
-    flex-direction: column;
-    background-color: #F9E45B;
-    justify-content: center;
-    align-items: center;
-    .credits {
-        font-size: 0.75rem;
-    }
+.table-cross-icon {
+    margin-left: 5px;
+    width: 15px;
 }
-
-
-
-//Sun theme
-.page-wrapper .header {
-    background-color: #F9E45B;
-}
-
 
 
 /*  landscape mobile */
@@ -257,6 +316,15 @@ footer {
 
     .add-product-text {
         display: block;
+    }
+
+    .table-pen-icon {
+        width: 25px;
+    }
+    
+    .table-cross-icon {
+        margin-left: 10px;
+        width: 25px;
     }
 }
 
