@@ -1,11 +1,12 @@
 
 .one-card {
     width: 10rem;
-    height: 12rem;
+    height: 12.1rem;
     border: 3px solid #1B4D89;
     border-radius: 0.1rem;
     margin-top: 10px;
     margin-right: 10px;
+    position: relative;
 }
 
 .card-title {
@@ -15,16 +16,28 @@
 }
 
 .card-picture {
-    // width: 7rem;
-    margin-left: auto;
-    margin-right: auto;
+    // margin-left: auto;
+    // margin-right: auto;
     width: 80%;
-    max-height: 7rem; 
+    max-height: 7rem;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    /* This is a shorthand of translateX(-50%) and translateY(-50%) */
+    transform: translate(-50%, -50%);
 }
 
 .under-picture {
     margin-top: 0.1rem;
     padding: 0rem;
+    position: absolute;
+    bottom: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    
 }
 
 .quantity {
@@ -51,7 +64,7 @@
     // margin-right: 0.5rem;
 }
 
-.pen-icon, .plus-icon, .minus-icon {
+.pen-icon, .plus-icon, .minus-icon, .cross-icon {
     width: 20px;
     position: absolute;
     cursor: pointer;
@@ -59,6 +72,11 @@
 }
 .pen-icon {
     right: -25px;
+    top: 12px;
+}
+
+.cross-icon {
+    left: -25px;
     top: 12px;
 }
 
@@ -85,6 +103,13 @@
     background-color: #6DB784;
     margin-top: 20px;
     margin-left: 45px;
+    border: none;
+    color: black;
+}
+.save-button:hover {
+    background-color: #F9E45B;
+    border: none;
+    color: black;
 }
 
 .Cards {

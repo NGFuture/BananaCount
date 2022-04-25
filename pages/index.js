@@ -33,13 +33,6 @@ const IndexPage = () => {
             
             <div className="products">
             <DisplayProducts />
-                {/* {!!products && products.map((item) => { 
-                    console.log("item map", item.id, item.itemName, item.itemQ, item.itemUrl );
-                    return (
-                    <div key={item.id} className="cards-container">
-                        <Card itemName={item.itemName} itemQ={item.itemQ} id={item.id} itemUrl={item.itemUrl} />
-                    </div>)
-                })} */}
             </div>
         </div>
     )

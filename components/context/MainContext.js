@@ -3,7 +3,7 @@ import { createContext, useContext } from "react";
 const MainContext = createContext();
 import { useState, useEffect } from "react";
 import { db, storage, auth } from "../../config/fire-config";
-import { doc, getDoc, getDocs, setDoc, updateDoc, onSnapshot, query, where, collection, documentId, addDoc } from "firebase/firestore";
+import { doc, getDoc, getDocs, setDoc, updateDoc, onSnapshot, query, where, collection, documentId, addDoc, deleteDoc} from "firebase/firestore";
 import {
     ref,
     uploadBytesResumable,
@@ -26,14 +26,14 @@ export const MainProvider = ({ children }) => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({itemName: itemName})
+            body: JSON.stringify({ itemName: itemName })
         }).then(res => res.text())
-        .then(data => {
-            console.log({data})
-        })
+            .then(data => {
+                console.log({ data })
+            })
     }
-    
-    
+
+
     // this function adds new product to Firebase and closes Popup after that
     async function createProduct(item) {
         console.log(item);
@@ -46,7 +46,7 @@ export const MainProvider = ({ children }) => {
         })
         setPopupOpen(false);
     }
-//this function updates quantaty of products
+    //this function updates quantaty of products
     async function updateQuantaty(id, itemQ, itemName) {
         if (itemQ === 0) {
             sendNotification(itemName);
@@ -58,6 +58,24 @@ export const MainProvider = ({ children }) => {
         setPopupOpen(false);
         setIdToEdit(null);
     }
+
+
+    //this function deletes product
+
+    async function deleteProduct(id) {
+        await deleteDoc(doc(db, "items", id));
+    
+        // // Create a reference to the file to delete
+        // const desertRef = ref(storage, 'images/desert.jpg');        
+        // // Delete the file
+        // deleteObject(desertRef)
+
+
+        setIdToEdit(null);
+        setPopupOpen(false);
+
+    }
+
 
     const imageUpload = (image) => {
         const imageRef = ref(storage, `itemsPhotos/${image.name}`);
@@ -210,6 +228,7 @@ export const MainProvider = ({ children }) => {
         createProduct,
         imageUpload,
         updateQuantaty,
+        deleteProduct
     };
     return (
         <MainContext.Provider value={value}>
