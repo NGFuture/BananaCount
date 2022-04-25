@@ -1,0 +1,45 @@
+.theme-dark {
+
+    .popup-overlay {
+        background-color: rgba(152, 212, 210, 0.7);
+    }
+    .popup-wrapper {
+        background-color: #1B4D89;
+    }
+    .popup-content {
+        padding: 50px;
+    }
+    .popup-close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        cursor: pointer;
+        border: 1px solid #F9E45B;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    
+    /*  landscape mobile */
+    @media (min-width:769px) {
+        .popup-wrapper {
+            width: 70vw;
+        }
+    }
+    
+    /* tablet, */
+    @media (min-width:1024px) {
+    
+    }
+    
+    /* desktop */
+    @media (min-width: 1280px) {
+    
+    
+      }
+
+}

@@ -3,7 +3,7 @@ import { useMainContext } from "../context/MainContext";
 
 const Card = ({ id, itemName, itemQ, itemUrl }) => {
 
-    const { setPopupOpen, setIdToEdit } = useMainContext();
+    const { setPopupOpen, setIdToEdit, setIdToDelete } = useMainContext();
     let color = "#FFA500";
     if (itemQ < 1) { color = "#FF0000" };
     if (itemQ > 10) { color = "#6DB784" };
@@ -22,7 +22,7 @@ const Card = ({ id, itemName, itemQ, itemUrl }) => {
                         }} />
                         <img src="/cross-delete.png" className="cross-icon" onClick={(e) => {
                             setPopupOpen(true);
-                            setIdToEdit(id);
+                            setIdToDelete(id);
                         }} />
                     </div>
                 </div>
