@@ -1,8 +1,12 @@
 import { useMainContext } from "../context/MainContext";
+import { DEFAULT_IMG_URL } from "../../config";
 
 
-const Card = ({ id, itemName, itemQ, itemUrl }) => {
 
+
+const Card = ({ id, itemName, itemQ, itemUrl}) => {
+
+    const imgUrl = itemUrl || DEFAULT_IMG_URL;
     const { setPopupOpen, setIdToEdit, setIdToDelete } = useMainContext();
     let color = "#FFA500";
     if (itemQ < 1) { color = "#FF0000" };
@@ -12,7 +16,7 @@ const Card = ({ id, itemName, itemQ, itemUrl }) => {
         <div>
             <div className="card one-card" >
                 <h5 className="card-title text-center card-title">{itemName.toUpperCase()}</h5>
-                <img src={itemUrl} className="card-img-top image-correct card-picture" alt={itemName} />
+                <img src={imgUrl} className="card-img-top image-correct card-picture" alt={itemName} />
                 <div className="card-body under-picture">
                     <div className="quantity" style={{ backgroundColor: color }}>
                         <div className="card-text fw-bold card-number" >{itemQ}</div>

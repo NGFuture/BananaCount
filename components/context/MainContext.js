@@ -3,7 +3,7 @@ import { createContext, useContext } from "react";
 const MainContext = createContext();
 import { useState, useEffect } from "react";
 import { db, storage, auth } from "../../config/fire-config";
-import { doc, getDoc, getDocs, setDoc, updateDoc, onSnapshot, query, where, collection, documentId, addDoc, deleteDoc} from "firebase/firestore";
+import { doc, getDoc, getDocs, setDoc, updateDoc, onSnapshot, query, where, collection, documentId, addDoc, deleteDoc } from "firebase/firestore";
 import {
     ref,
     uploadBytesResumable,
@@ -44,6 +44,7 @@ export const MainProvider = ({ children }) => {
             itemName: item.itemName,
             itemQ: item.itemQ,
             itemUrl: item.itemUrl,
+            imgPath: item.imgPath,
         })
         setPopupOpen(false);
     }
@@ -63,14 +64,13 @@ export const MainProvider = ({ children }) => {
 
     //this function deletes product
 
-    async function deleteProduct(id) {
-        await deleteDoc(doc(db, "items", id));
-    
-        // // Create a reference to the file to delete
-        // const desertRef = ref(storage, 'images/desert.jpg');        
-        // // Delete the file
-        // deleteObject(desertRef)
+    async function deleteProduct(product) {
+        if (product.imgPath) {
+            const deleteImgRef = ref(storage, product.imgPath);
+            await deleteObject(deleteImgRef)
+        }
 
+        await deleteDoc(doc(db, "items", product.id));
 
         setIdToDelete(null);
         setPopupOpen(false);
@@ -79,7 +79,9 @@ export const MainProvider = ({ children }) => {
 
 
     const imageUpload = (image) => {
-        const imageRef = ref(storage, `itemsPhotos/${image.name}`);
+        // const imageRef = ref(storage, `itemsPhotos/${image.name}`);
+        let name = Date.now() + "-" + image.name
+        const imageRef = ref(storage, `itemsPhotos/${name}`);
         const uploadImages = uploadBytesResumable(imageRef, image);
         return new Promise((resolve, reject) => {
             uploadImages.on(
@@ -95,9 +97,9 @@ export const MainProvider = ({ children }) => {
                     reject(error)
                 },
                 () => {
-                    getDownloadURL(ref(storage, `itemsPhotos/${image.name}`)).then(
+                    getDownloadURL(ref(storage, `itemsPhotos/${name}`)).then(
                         (url) => {
-                            resolve(url);
+                            resolve({ url, imgPath: `itemsPhotos/${name}` });
                             //     setImageUrl(url);
                             //   setProgress("uploaded");
                             //   setAddingItem({...addingItem, itemUrl: url })
