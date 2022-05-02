@@ -18,7 +18,7 @@ const DeleteForm = () => {
         deleteProduct(product)
     }
     return (
-        <div>
+        <div className="delete-wrapper">
             <button className="btn btn-primary delete-button" type="button" onClick={handleDelete}>Confirm deletion</button>
             <div className="card one-card" >
                 <h5 className="card-title text-center card-title">{itemName.toUpperCase()}</h5>

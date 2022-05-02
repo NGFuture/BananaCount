@@ -1,8 +1,10 @@
 import { useMainContext } from "../context/MainContext";
 import Card from "./Card";
+import { DEFAULT_IMG_URL } from "../../config";
 
 const DisplayProducts = () => {
     const { filter, products, displayCards, setPopupOpen, setIdToEdit, setIdToDelete } = useMainContext()
+
     let productsToDisplay = [];
     if (filter === "all") {
         productsToDisplay = products
@@ -37,10 +39,11 @@ const DisplayProducts = () => {
                 </thead>
                 <tbody>
                     {productsToDisplay.map((item) => {
+
                         return (
                             <tr key={item.id}>
                                 <td>{item.itemName.toUpperCase()}</td>
-                                <td><img src={item.itemUrl} alt={item.itemName} className="table-image" /></td>
+                                <td><img src={item.itemUrl || DEFAULT_IMG_URL} alt={item.itemName} className="table-image" /></td>
                                 <td>{item.itemQ}</td>
                                 <td>
                                     <img src="/pencil2-black2.png" className="table-pen-icon" onClick={(e) => {
