@@ -122,6 +122,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin-bottom: 10px;
+    justify-content: space-between;
 }
 
 .logo {
@@ -216,9 +217,17 @@
     color: black;
 }
 
+.delete-wrapper {
+    display: grid;
+    justify-content: center;
+}
+
 .delete-button {
     background-color: #FF0000;
     border: none;
+    // display: block;
+    // margin-left: auto;
+    // margin-right: auto;
 }
 
 .all-stock {
@@ -284,6 +293,10 @@
 .table-image {
     // width: 30px;
     height: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 .table-pen-icon {

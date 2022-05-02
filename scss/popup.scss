@@ -14,7 +14,9 @@
 .popup-wrapper {
     width: 95vw;
     max-width: 450px;
-    min-height: 350px;
+    min-height: 400px;
+    max-height: 100vh;
+    overflow: auto;
     height: 30vh;
     background-color: white;
     position: relative;
