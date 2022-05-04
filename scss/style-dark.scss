@@ -1,32 +1,37 @@
 
+$dark-bg: #1B4D89;
 
 .page-wrapper.theme-dark {
-    background-color: #1B4D89;
+    background-color: $dark-bg;
     color: white;
         header {
             background-color: #98D4D2;
                 }
         footer {
             background-color: #98D4D2;
-            color: #1B4D89;
+            color: $dark-bg;
         }  
      
         .logo-wrapper {
-            color: #1B4D89;
+            color: $dark-bg;
         }
         
         // theme-switch
         
 
         .mood-text {
-            color: #1B4D89;
+            color: $dark-bg;
+        }
+
+        .switch-type {
+            background-color: $dark-bg;
         }
         
         .round-btn-sun {
             border-radius: 50%;
             background-color: #F9E45B;
-            // border: 2px solid #1B4D89;
-            border: 0px solid #1B4D89;
+            // border: 2px solid $dark-bg;
+            border: 0px solid $dark-bg;
             width: 15px;
             height: 15px;
             margin-left: 4px;
@@ -35,7 +40,7 @@
         
         .round-btn-moon {
             border-radius: 50%;
-            background-color: #1B4D89;
+            background-color: $dark-bg;
             border: 2px solid #F9E45B;
             width: 20px;
             height: 20px;
@@ -45,7 +50,9 @@
         .add-button {
             color: white;
         }
-
+        .filter-bar {
+            background-color: $dark-bg; 
+        }
         .form-switch .form-check-input:focus {
             border-color: #98D4D2;
             background-color:  #98D4D2;
@@ -88,7 +95,7 @@
         }
         
         .all-stock {
-            background-color: #1B4D89;
+            background-color: $dark-bg;
             border: 4px solid #6DB784;
             color: white;
         }
@@ -99,11 +106,11 @@
           }
         .all .all-stock {
             background-color:  #6DB784;
-            color: #1B4D89;
+            color: $dark-bg;
             border: 4px solid #6DB784;
         }
         .low-stock {
-            background-color: #1B4D89;
+            background-color: $dark-bg;
             border: 4px solid #FFA500;
             color: white;
         }
@@ -116,11 +123,11 @@
         
         .low .low-stock {
             background-color:  #FFA500;
-            color: #1B4D89;
+            color: $dark-bg;
             border: 4px solid #FFA500;
         }
         .no-stock {
-            background-color: #1B4D89;
+            background-color: $dark-bg;
             border: 4px solid #FF0000;
             color: white;
             box-shadow: #FF0000;
@@ -135,7 +142,7 @@
         
         .no .no-stock {
             background-color:  #FF0000;
-            color: #1B4D89;
+            color: $dark-bg;
             border: 4px solid #FF0000;
         }
 
@@ -144,7 +151,7 @@
         }
 
         .container {
-            background-color: #1B4D89;
+            background-color: $dark-bg;
         }
         
 
@@ -158,6 +165,9 @@
         grid-template-areas:
             ". switch-type"
             "filter-bar products"
+    }
+    .filter-bar {
+        background-color: transparent;
     }
     .button-group {
         display: flex;

@@ -5,7 +5,7 @@ import { DEFAULT_IMG_URL } from "../../config";
 
 
 const Card = ({ id, itemName, itemQ, itemUrl}) => {
-
+    const {themeSun} = useMainContext();
     const imgUrl = itemUrl || DEFAULT_IMG_URL;
     const { setPopupOpen, setIdToEdit, setIdToDelete } = useMainContext();
     let color = "#FFA500";
@@ -24,7 +24,7 @@ const Card = ({ id, itemName, itemQ, itemUrl}) => {
                             setPopupOpen(true);
                             setIdToEdit(id);
                         }} />
-                        <img src="/cross-delete.png" className="cross-icon" onClick={(e) => {
+                        <img src={themeSun ? "/cross-delete.png" : "/cross-delete-white.png"} className="cross-icon" onClick={(e) => {
                             setPopupOpen(true);
                             setIdToDelete(id);
                         }} />
