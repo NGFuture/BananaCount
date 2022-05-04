@@ -9,7 +9,7 @@ const SwitchType = () => {
     }
 
     return (
-        <div className="switch-type">
+        <div className="switch-type-inner">
             <div className="add-button-group">
                 <button type="button" className="btn add-button" onClick={handleAddClick}>+</button>
                 <p className="add-product-text">Add Product</p>

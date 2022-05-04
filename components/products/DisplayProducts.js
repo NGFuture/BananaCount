@@ -3,7 +3,7 @@ import Card from "./Card";
 import { DEFAULT_IMG_URL } from "../../config";
 
 const DisplayProducts = () => {
-    const { filter, products, displayCards, setPopupOpen, setIdToEdit, setIdToDelete } = useMainContext()
+    const { filter, products, displayCards, setPopupOpen, setIdToEdit, setIdToDelete, themeSun } = useMainContext()
 
     let productsToDisplay = [];
     if (filter === "all") {
@@ -50,7 +50,7 @@ const DisplayProducts = () => {
                                         setPopupOpen(true);
                                         setIdToEdit(item.id);
                                     }} />
-                                    <img src="/cross-delete.png" className="table-cross-icon" onClick={(e) => {
+                                    <img src={themeSun ? "/cross-delete.png" : "/cross-delete-white.png"} className="table-cross-icon" onClick={(e) => {
                                         setPopupOpen(true);
                                         setIdToDelete(item.id);
                                     }} />
