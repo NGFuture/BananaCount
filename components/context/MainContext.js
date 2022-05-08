@@ -11,6 +11,21 @@ import {
     deleteObject,
 } from "firebase/storage";
 
+const defaultSettings = {
+    themeSun: true,
+    displayCards: true,
+}
+const getSettingsFromStorage = () => {
+    if (typeof window === "undefined") {
+        return defaultSettings
+    }
+    const data = localStorage.getItem("banana_settings")
+    return data ? JSON.parse(data) : defaultSettings
+}
+
+const setSettingsToStorage = (data) => {
+    localStorage.setItem("banana_settings", JSON.stringify(data))
+}
 
 export const MainProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
@@ -18,8 +33,9 @@ export const MainProvider = ({ children }) => {
     const [idToEdit, setIdToEdit] = useState(null);
     const [idToDelete, setIdToDelete] = useState(null);
     const [filter, setFilter] = useState("all");
-    const [displayCards, setDisplayCards] = useState(true);
-    const [themeSun, setThemeSun] = useState(true);
+    const [displayCards, setDisplayCards] = useState(defaultSettings.displayCards);
+    const [themeSun, setThemeSun] = useState(defaultSettings.themeSun);
+    
 
     function sendNotification(itemName) {
         fetch("/api/notification", {
@@ -119,6 +135,9 @@ export const MainProvider = ({ children }) => {
             }));
             setProducts(newProducts);
         });
+        const {themeSun, displayCards} = getSettingsFromStorage();
+        setDisplayCards(displayCards);
+        setThemeSun(themeSun);
 
     }, [])
     console.log(products);
@@ -132,9 +151,21 @@ export const MainProvider = ({ children }) => {
         filter,
         setFilter,
         displayCards,
-        setDisplayCards,
+        setDisplayCards: (value) => {
+            setDisplayCards(value);
+            setSettingsToStorage({
+                themeSun: themeSun,
+                displayCards: value, 
+            })
+        },
         themeSun,
-        setThemeSun,
+        setThemeSun: (value) => {
+            setThemeSun(value);
+            setSettingsToStorage({
+                themeSun: value,
+                displayCards, 
+            })
+        },
         createProduct,
         imageUpload,
         updateQuantaty,
